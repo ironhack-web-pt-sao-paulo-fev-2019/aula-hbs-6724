@@ -60,7 +60,7 @@ app.get('/teams', (req, res, next) => {
     let data = {
         layout: false
     }
-    res.render('teams');
+    res.render('teams', data);
 });
 
 app.listen(3003);
