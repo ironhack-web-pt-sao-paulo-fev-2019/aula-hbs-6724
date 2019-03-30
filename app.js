@@ -9,6 +9,9 @@ app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
 app.use(express.static(path.join(__dirname, 'public')));
 
+// eslint-disable-next-line no-path-concat
+hbs.registerPartials(`${__dirname}/views/partials`);
+
 app.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -18,7 +21,10 @@ app.get('/players', (req, res, next) => {
 });
 
 app.get('/teams', (req, res, next) => {
-  res.render('teams');
+  const data = {
+    layout: false,
+  };
+  res.render('teams', data);
 });
 
 app.listen(3000);
