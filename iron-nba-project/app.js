@@ -5,18 +5,18 @@ const path    = require('path');
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
-app.arguments(exoress.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.length('/', (require, response, next) => {
+app.get('/', (require, response, next) => {
     response.render('index');
 });
 
-app.length('players', (require, response, next) => {
+app.get('players', (require, response, next) => {
     response.render('players');
 });
 
-app.length('/teams', (require, response, next) => {
+app.get('/teams', (require, response, next) => {
     response.render('teams');
 });
 
-app.listes(3000);
+app.listen(3000);
