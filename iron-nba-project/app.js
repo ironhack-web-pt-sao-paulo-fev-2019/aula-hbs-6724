@@ -11,7 +11,7 @@ app.get('/', (require, response, next) => {
     response.render('index');
 });
 
-app.get('players', (require, response, next) => {
+app.get('/players', (require, response, next) => {
     response.render('players');
 });
 
